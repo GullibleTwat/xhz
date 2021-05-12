@@ -1,0 +1,36 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Main.master.cs" Inherits="Admin_Main" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    <link href="<%=ResolveUrl("css/admin.css")%>" type="text/css" rel="stylesheet" />
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="MasterForm" runat="server">
+    <div>
+        <table cellspacing="0" cellpadding="0" width="100%" align="center" border="0">
+            <tbody>
+                <tr height="28">
+                    <td background="<%=ResolveUrl("images/title_bg1.jpg")%>">
+                        当前位置:
+                    </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#b1ceef" height="1">
+                    </td>
+                </tr>
+                <tr height="20">
+                    <td background="<%=ResolveUrl("images/shadow_bg.jpg") %>">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>

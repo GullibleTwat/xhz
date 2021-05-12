@@ -1,0 +1,68 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="cs/site.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder id="headContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+<div id="top">
+           <span style="margin-right:50px;"><a href="index.jsp">智能信息处理实验室</a></span>
+                登陆注册忘记密码
+</div>
+<div class="clear"></div>
+<div id="head">
+</div>
+<div id="menu" class="main">
+    	    <div class="item">
+	        	<a href="labslist" onclick="javascript:void(0);">首页</a>
+	        </div>
+	          	    <div class="item">
+	        	<a href="labslist" onclick="javascript:void(0);">个人简介</a>
+	        </div>
+        	    <div class="item">
+	        	<a href="labslist" onclick="javascript:void(0);">个人荣誉</a>
+	        </div>
+        	    <div class="item">
+	        	<a href="labslist" onclick="javascript:void(0);">作品展示</a>
+	        </div>
+            	    <div class="item">
+	        	<a href="labslist" onclick="javascript:void(0);">作品出售</a>
+	        </div>
+            	    <div class="item">
+	        	<a href="labslist" onclick="javascript:void(0);">最新动态</a>
+	        </div>
+            	    <div class="item">
+	        	<a href="labslist" onclick="javascript:void(0);">艺人艺事</a>
+	        </div>
+    	    <div class="item">
+	        	<a href="labslist" onclick="javascript:void(0);">随笔小记</a>
+	        </div>
+    	    <div class="item">
+	        	<a href="labslist" onclick="javascript:void(0);">同行评价</a>
+	        </div>
+        	    <div class="item">
+	        	<a href="labslist" onclick="javascript:void(0);">留言反馈</a>
+	        </div>
+        	    <div class="item">
+	        	<a href="labslist" onclick="javascript:void(0);">联系方式</a>
+	        </div>
+	     	<div class="clear"></div>
+     	</div>
+
+<div id="content" class="main">
+         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+</div>
+
+
+
+<div id="bottom"></div>
+</body>
+</html>
