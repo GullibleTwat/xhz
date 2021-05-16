@@ -24,20 +24,16 @@ namespace Web2
                 return;
             }
 
-            if (context.Request.QueryString["Group"] == null)
-            {
-                context.Response.Write("Hello World");
-                return;
-            }
 
-            if (context.Request.QueryString["cmd"] == null)
-            {
-                context.Response.Write("Hello World");
-                return;
-            }
+
+            //if (context.Request.QueryString["cmd"] == null)
+            //{
+            //    context.Response.Write("Hello World");
+            //    return;
+            //}
             string Art = context.Request.QueryString["Art"].ToString(); //表
             string No = No = context.Request.QueryString["No"].ToString();//分组排序序号
-            string cmd = context.Request.QueryString["cmd"].ToString();//命令
+            //string cmd = context.Request.QueryString["cmd"].ToString();//命令
             //一.根据No 获取当前分组ID，title，info,将title，info嵌入指定网页位置
             SqlDataReader dr = GetAtlas(Art, No, "cur");
             if (dr.Read())
@@ -83,21 +79,23 @@ namespace Web2
             }
             //三.根据当前分组ID（GroupID）获取本组数据列表，将本组数据嵌入网页
             SqlDataReader drList = GetAtlList(Art, dr["ID"].ToString());
-
-            if (drList.Read())
+            html += "<UL id=\"pictureurls\" class=\"cont picbig\" style=\"WIDTH: 1230px; POSITION: absolute; LEFT: 0px\">";
+            while (drList.Read())
             {
                 string relurl = drList["Attachment"].ToString();
                 string title = drList["Title"].ToString();
                 string name = "mini_" + relurl.Substring(relurl.LastIndexOf("/") + 1);
                 string url = relurl.Substring(0, relurl.LastIndexOf("/") + 1) + name;
-                html += "<UL id=\"pictureurls\" class=\"cont picbig\" style=\"WIDTH: 1230px; POSITION: absolute; LEFT: 0px\"><LI><div class='img-wrap'><a href='javascript:;'><img  height='75' width='100' alt='"
+                html += "<LI><div class='img-wrap'><a href='javascript:;'><img  height='75' width='100' alt='"
                     + title
                     + "' src='"
                     + url
                     + "' rel='"
                     + relurl
-                    + "'/></a></div></LI></UL></DIV><A onclick=\"showpic('next')\" class=next-bnt href=\"javascript:;\"><SPAN></SPAN></A>";
+                    + "'/></a></div></LI>";
             }
+
+            html += "</UL></DIV><A onclick=\"showpic('next')\" class=next-bnt href=\"javascript:;\"><SPAN></SPAN></A>";
             //四.根据No 获取下一组ID，title，Atlas，info,No将title，Atlas，No嵌入指定网页位置
             SqlDataReader drNext = GetAtlas(Art, No, "next");
             if (drNext.Read())
@@ -107,10 +105,11 @@ namespace Web2
                        + " No="
                        + drNext["No"].ToString()
                        + "><DIV class='img-wrap'><A href=\"#next\"><IMG title="
-                       + drPre["Title"].ToString()
+                       + drNext["Title"].ToString()
                        + " style=\"HEIGHT: 75px; WIDTH: 100px\" src=\""
-                       + drPre["Atlas"].ToString()
-                       + "\"></A></DIV><A href=\"#next\">&lt;下一组</A> </DIV></DIV>";
+                       + drNext["Atlas"].ToString()
+                       + "\"></A></DIV><A href=\"#next\">&lt;下一组</A> </DIV></DIV>"
+                       +"<div class='text' id='picinfo'>hello</div><div class='content'></div>";
             }
             context.Response.Write(html);
             context.Response.Flush();
@@ -120,7 +119,7 @@ namespace Web2
         private SqlDataReader GetAtlas(string Art, string No, string cmd)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select ID,Title,Atlas,Time,No from ");
+            strSql.Append("select ID,Title,Atlas,Time,No,Click from ");
             strSql.Append(Art);
             strSql.Append("Group");
             switch (cmd)
@@ -146,7 +145,7 @@ namespace Web2
         private SqlDataReader GetAtlList(string Art, string Group)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select select Title,Attachment from ");
+            strSql.Append("select Title,Attachment from ");
             strSql.Append(Art);
             strSql.Append(" where IsOpen=1 and GroupID=@GroupID ");
             SqlParameter[] parameters ={

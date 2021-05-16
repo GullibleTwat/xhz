@@ -7,7 +7,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F518B7EF-C888-4D66-B14A-F2A2148E8437}</ProjectGuid>
+    <ProjectGuid>{45897A4F-DCCD-4859-BDB5-FDB2AD379481}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -33,7 +33,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\OutPut\Web2\bin\Release\</OutputPath>
+    <OutputPath>bin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -41,10 +41,6 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data.SQLite, Version=1.0.62.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\System.Data.SQLite.dll</HintPath>
-    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -66,7 +62,6 @@
     <Content Include="Default.aspx" />
     <Content Include="images\arr_left.gif" />
     <Content Include="images\arr_right.gif" />
-    <Content Include="images\S0\blank.gif" />
     <Content Include="images\body-bg.png" />
     <Content Include="images\head.gif" />
     <Content Include="images\home_slider\arrow-next.png" />
@@ -83,12 +78,13 @@
     <Content Include="images\home_slider\s8.jpg" />
     <Content Include="images\home_slider\slider-shadow.png" />
     <Content Include="images\icon.png" />
-    <Content Include="images\msg_img\loading_d.gif" />
     <Content Include="images\msg_img\loading.gif" />
+    <Content Include="images\msg_img\loading_d.gif" />
     <Content Include="images\nav.png" />
     <Content Include="images\prev.cur" />
     <Content Include="images\psb.jpg" />
     <Content Include="images\S0\big-btn.png" />
+    <Content Include="images\S0\blank.gif" />
     <Content Include="images\S0\cat_hot_bg.png" />
     <Content Include="images\S0\icon.png" />
     <Content Include="images\S0\max.png" />
@@ -104,11 +100,26 @@
     <Content Include="js\date.js" />
     <Content Include="js\jquery-1.11.0.js" />
     <Content Include="js\jquery-1.11.0.min.js" />
+    <Content Include="GetAtl.ashx" />
+    <Content Include="getAtlas.ashx" />
+    <Content Include="getAtlList.ashx" />
+    <Content Include="Handler1.ashx" />
+    <None Include="js\jquery-1.4.1-vsdoc.js" />
+    <Content Include="js\jquery-1.4.1.js" />
+    <Content Include="js\jquery-1.4.1.min.js" />
+    <None Include="js\jquery-1.7.1.intellisense.js" />
+    <Content Include="js\jquery-1.7.1.js" />
+    <Content Include="js\jquery-1.7.1.min.js" />
+    <Content Include="js\jquery-2.0.2.js" />
+    <Content Include="js\jquery-2.0.2.min.js" />
+    <Content Include="js\jquery.cycle2.js" />
+    <Content Include="js\jquery.cycle2.min.js" />
     <Content Include="js\jquery.sgallery.js" />
+    <Content Include="js\js.js" />
     <Content Include="js\search_common.js" />
     <Content Include="js\show_picture.js" />
     <Content Include="TestAtl.aspx" />
-    <Content Include="WebForm1.aspx" />
+    <Content Include="Web.config" />
     <Content Include="Works.aspx" />
     <Content Include="xhz\AddNew.aspx" />
     <Content Include="xhz\css\admin.css" />
@@ -413,29 +424,13 @@
     <Content Include="xhz\Scripts\xhEditor\xheditor_skin\vista\img\wmp.gif" />
     <Content Include="xhz\Scripts\xhEditor\xheditor_skin\vista\img\wordimg.gif" />
     <Content Include="xhz\Scripts\xhEditor\xheditor_skin\vista\ui.css" />
+    <Content Include="xhz\Update\day_140425\20140425120403867.png" />
+    <Content Include="xhz\Update\day_140425\201404251205541839.png" />
     <Content Include="xhz\upload.aspx" />
+    <Content Include="xhz\Upload\Works\day_140425\201404251238491174..png" />
+    <Content Include="xhz\Upload\Works\day_140425\201404251243037993..png" />
+    <Content Include="xhz\Upload\Works\day_140425\201404251247105593..png" />
     <Content Include="xhz\Works.aspx" />
-    <Content Include="Handler1.ashx" />
-    <Content Include="getAtlas.ashx" />
-    <Content Include="getAtlList.ashx" />
-    <Content Include="GetAtl.ashx" />
-    <None Include="js\jquery-1.4.1-vsdoc.js" />
-    <Content Include="js\jquery-1.4.1.js" />
-    <Content Include="js\jquery-1.4.1.min.js" />
-    <None Include="js\jquery-1.7.1.intellisense.js" />
-    <Content Include="js\jquery-1.7.1.js" />
-    <Content Include="js\jquery-1.7.1.min.js" />
-    <Content Include="js\jquery-2.0.2.js" />
-    <Content Include="js\jquery-2.0.2.min.js" />
-    <Content Include="js\jquery.cycle2.js" />
-    <Content Include="js\jquery.cycle2.min.js" />
-    <Content Include="js\js.js" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="xhz\css\vssver2.scc" />
-    <Content Include="xhz\images\vssver2.scc" />
-    <Content Include="xhz\Main.master" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Default.aspx.cs">
@@ -472,13 +467,6 @@
     </Compile>
     <Compile Include="TestAtl.aspx.designer.cs">
       <DependentUpon>TestAtl.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Works.aspx.cs">
       <DependentUpon>Works.aspx</DependentUpon>
@@ -529,13 +517,15 @@
   <ItemGroup>
     <Content Include="js\jquery-1.11.0.min.map" />
     <Content Include="MasterPage.Master" />
-    <None Include="Properties\PublishProfiles\test.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="xhz\css\vssver2.scc" />
+    <Content Include="xhz\images\vssver2.scc" />
+    <Content Include="xhz\Main.master" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
@@ -554,16 +544,6 @@
       <Project>{53995dbb-9836-4647-ad22-865884fdeb9e}</Project>
       <Name>Model</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SQLServerDAL\SQLServerDAL.csproj">
-      <Project>{ab835ba2-ffd6-49cd-87b0-e216255bb32e}</Project>
-      <Name>SQLServerDAL</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Upload\Works\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -578,9 +558,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1570</DevelopmentServerPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:14799/</IISUrl>
+          <IISUrl>http://localhost:1488/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
