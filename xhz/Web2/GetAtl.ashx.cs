@@ -100,7 +100,7 @@ namespace Web2
             SqlDataReader drNext = GetAtlas(Art, No, "next");
             if (drNext.Read())
             {
-                html += html += "<DIV class=\"next picbig\" Art="
+                 html += "<DIV class=\"next picbig\" Art="
                        + Art
                        + " No="
                        + drNext["No"].ToString()

@@ -19,6 +19,11 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -76,6 +81,8 @@
     <Content Include="App_Themes\RedTheme\Default.css" />
     <Content Include="Controls\checkright.ascx" />
     <Content Include="Controls\copyright.ascx" />
+    <Content Include="cs\Atl.css" />
+    <Content Include="cs\site.css" />
     <Content Include="Global.asax" />
     <Content Include="Style.css" />
     <Content Include="ValidateCode.aspx" />
@@ -120,22 +127,340 @@
     <Content Include="webctrl_client\1_0\TreeImages\Tplus.gif" />
     <Content Include="webctrl_client\1_0\TreeImages\white.gif" />
     <Content Include="webctrl_client\1_0\treeview.htc" />
+    <Content Include="Works\Add.aspx" />
+    <Content Include="Works\delete.aspx" />
+    <Content Include="Works\List.aspx" />
+    <Content Include="Works\Modify.aspx" />
+    <Content Include="Works\Show.aspx" />
+    <Content Include="xhz\AddNew.aspx" />
+    <Content Include="xhz\css\admin.css" />
+    <Content Include="xhz\header.aspx" />
+    <Content Include="xhz\images\admin.css" />
+    <Content Include="xhz\images\admin_p.gif" />
+    <Content Include="xhz\images\bt_login.gif" />
+    <Content Include="xhz\images\header_bg.jpg" />
+    <Content Include="xhz\images\header_left.jpg" />
+    <Content Include="xhz\images\header_right.jpg" />
+    <Content Include="xhz\images\login_1.jpg" />
+    <Content Include="xhz\images\login_2.jpg" />
+    <Content Include="xhz\images\login_3.jpg" />
+    <Content Include="xhz\images\login_4.jpg" />
+    <Content Include="xhz\images\login_5.jpg" />
+    <Content Include="xhz\images\login_6.gif" />
+    <Content Include="xhz\images\menu_bg.jpg" />
+    <Content Include="xhz\images\menu_bt.jpg" />
+    <Content Include="xhz\images\menu_icon.gif" />
+    <Content Include="xhz\images\shadow_bg.jpg" />
+    <Content Include="xhz\images\title_bg1.jpg" />
+    <Content Include="xhz\images\title_bg2.jpg" />
+    <Content Include="xhz\images\tlguanbi1.png" />
+    <Content Include="xhz\images\tlguanbi2.png" />
+    <Content Include="xhz\index.aspx" />
+    <Content Include="xhz\login.aspx" />
+    <Content Include="xhz\main.aspx" />
+    <Content Include="xhz\menu.aspx" />
+    <Content Include="xhz\Scripts\jquery-1.4.2.min.js" />
+    <Content Include="xhz\Scripts\jquery-1.4.4.min.js" />
+    <Content Include="xhz\Scripts\jquery-1.4.4.src.js" />
+    <Content Include="xhz\Scripts\jquery-ui.min.js" />
+    <Content Include="xhz\Scripts\jquery.min.js" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor-1.2.1.min.js" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\default\angry.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\default\awkward.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\default\bye.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\default\config.txt" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\default\crazy.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\default\cry.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\default\curse.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\default\cute.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\default\despise.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\default\doubt.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\default\envy.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\default\fastcry.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\default\knock.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\default\laugh.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\default\mad.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\default\ohmy.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\default\panic.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\default\proud.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\default\quiet.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\default\sad.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\default\shutup.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\default\shy.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\default\sleep.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\default\smile.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\default\struggle.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\default\titter.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\default\tongue.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\default\wail.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\default\wronged.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\ipb\alien.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\ipb\angel.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\ipb\angry.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\ipb\bandit.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\ipb\biglaugh.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\ipb\blink.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\ipb\blush.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\ipb\config.txt" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\ipb\cool.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\ipb\cry.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\ipb\depres.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\ipb\devil.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\ipb\glare.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\ipb\heart.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\ipb\joyful.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\ipb\kiss.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\ipb\laugh.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\ipb\magician.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\ipb\ninja.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\ipb\pinch.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\ipb\police.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\ipb\sad.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\ipb\sick.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\ipb\sideways.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\ipb\sleep.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\ipb\smile.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\ipb\surprised.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\ipb\tongue.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\ipb\unsure.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\ipb\w00t.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\ipb\whistling.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\ipb\wondering.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\ipb\wub.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\1.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\10.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\11.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\12.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\13.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\14.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\15.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\16.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\17.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\18.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\19.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\2.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\20.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\21.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\22.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\23.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\24.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\25.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\26.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\27.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\28.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\29.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\3.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\30.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\31.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\32.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\33.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\34.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\35.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\36.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\37.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\38.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\39.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\4.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\40.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\5.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\6.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\7.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\8.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\msn\9.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\pidgin\angry.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\pidgin\bad.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\pidgin\blush.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\pidgin\brokenheart.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\pidgin\bye.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\pidgin\coffee.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\pidgin\config.txt" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\pidgin\cool.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\pidgin\cry.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\pidgin\curse.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\pidgin\cute.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\pidgin\devil.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\pidgin\envy.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\pidgin\gift.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\pidgin\good.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\pidgin\kiss.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\pidgin\laugh.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\pidgin\love.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\pidgin\music.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\pidgin\question.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\pidgin\rose.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\pidgin\sad.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\pidgin\shocked.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\pidgin\shout.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\pidgin\sick.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\pidgin\sleepy.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\pidgin\smile.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\pidgin\soccer.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\pidgin\sweat.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\pidgin\tired.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\pidgin\tongue.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\pidgin\victory.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_emot\pidgin\wink.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_lang\en.js" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_lang\zh-cn.js" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_lang\zh-tw.js" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_plugins\html2markdown.js" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_plugins\htmldomparser.js" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_plugins\multiupload\img\add.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_plugins\multiupload\img\bg1.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_plugins\multiupload\img\bg2.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_plugins\multiupload\img\btnbg.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_plugins\multiupload\img\btnbgr.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_plugins\multiupload\img\clear.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_plugins\multiupload\img\progressbg.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_plugins\multiupload\img\start.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_plugins\multiupload\multiupload.css" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_plugins\multiupload\multiupload.html" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_plugins\multiupload\multiupload.js" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_plugins\multiupload\swfupload\swfupload.js" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_plugins\multiupload\swfupload\swfupload.swf" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_plugins\showdown.js" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_plugins\ubb.js" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\blank.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\default\iframe.css" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\default\img\anchor.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\default\img\close.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\default\img\flash.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\default\img\icons.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\default\img\loading.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\default\img\progress.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\default\img\progressbg.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\default\img\tag-address.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\default\img\tag-div.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\default\img\tag-h1.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\default\img\tag-h2.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\default\img\tag-h3.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\default\img\tag-h4.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\default\img\tag-h5.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\default\img\tag-h6.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\default\img\tag-p.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\default\img\tag-pre.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\default\img\waiting.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\default\img\wmp.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\default\img\wordimg.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\default\ui.css" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\nostyle\iframe.css" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\nostyle\img\anchor.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\nostyle\img\close.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\nostyle\img\flash.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\nostyle\img\icons.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\nostyle\img\loading.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\nostyle\img\progress.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\nostyle\img\progressbg.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\nostyle\img\tag-address.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\nostyle\img\tag-div.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\nostyle\img\tag-h1.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\nostyle\img\tag-h2.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\nostyle\img\tag-h3.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\nostyle\img\tag-h4.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\nostyle\img\tag-h5.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\nostyle\img\tag-h6.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\nostyle\img\tag-p.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\nostyle\img\tag-pre.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\nostyle\img\waiting.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\nostyle\img\wmp.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\nostyle\img\wordimg.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\nostyle\ui.css" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007blue\iframe.css" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007blue\img\anchor.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007blue\img\buttonbg.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007blue\img\close.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007blue\img\flash.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007blue\img\icons.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007blue\img\loading.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007blue\img\progress.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007blue\img\progressbg.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007blue\img\tag-address.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007blue\img\tag-div.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007blue\img\tag-h1.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007blue\img\tag-h2.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007blue\img\tag-h3.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007blue\img\tag-h4.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007blue\img\tag-h5.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007blue\img\tag-h6.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007blue\img\tag-p.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007blue\img\tag-pre.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007blue\img\waiting.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007blue\img\wmp.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007blue\img\wordimg.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007blue\ui.css" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007silver\iframe.css" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007silver\img\anchor.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007silver\img\buttonbg.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007silver\img\close.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007silver\img\flash.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007silver\img\icons.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007silver\img\loading.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007silver\img\progress.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007silver\img\progressbg.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007silver\img\tag-address.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007silver\img\tag-div.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007silver\img\tag-h1.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007silver\img\tag-h2.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007silver\img\tag-h3.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007silver\img\tag-h4.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007silver\img\tag-h5.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007silver\img\tag-h6.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007silver\img\tag-p.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007silver\img\tag-pre.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007silver\img\waiting.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007silver\img\wmp.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007silver\img\wordimg.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\o2007silver\ui.css" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\vista\iframe.css" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\vista\img\anchor.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\vista\img\buttonbg.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\vista\img\close.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\vista\img\flash.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\vista\img\icons.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\vista\img\loading.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\vista\img\progress.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\vista\img\progressbg.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\vista\img\tag-address.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\vista\img\tag-div.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\vista\img\tag-h1.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\vista\img\tag-h2.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\vista\img\tag-h3.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\vista\img\tag-h4.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\vista\img\tag-h5.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\vista\img\tag-h6.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\vista\img\tag-p.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\vista\img\tag-pre.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\vista\img\titlebg.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\vista\img\waiting.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\vista\img\wmp.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\vista\img\wordimg.gif" />
+    <Content Include="xhz\Scripts\xhEditor\xheditor_skin\vista\ui.css" />
+    <Content Include="xhz\Update\day_140425\20140425120403867.png" />
+    <Content Include="xhz\Update\day_140425\201404251205541839.png" />
+    <Content Include="xhz\upload.aspx" />
+    <Content Include="xhz\Upload\Works\day_140425\201404251238491174..png" />
+    <Content Include="xhz\Upload\Works\day_140425\201404251243037993..png" />
+    <Content Include="xhz\Upload\Works\day_140425\201404251247105593..png" />
+    <Content Include="xhz\Works.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controls\CheckRight.ascx.cs">
       <DependentUpon>checkright.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Controls\CheckRight.ascx.designer.cs">
       <DependentUpon>checkright.ascx</DependentUpon>
     </Compile>
     <Compile Include="Controls\CopyRight.ascx.cs">
       <DependentUpon>copyright.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Controls\CopyRight.ascx.designer.cs">
       <DependentUpon>copyright.ascx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -145,6 +470,7 @@
     </Compile>
     <Compile Include="MasterPage.master.cs">
       <DependentUpon>MasterPage.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MasterPage.master.designer.cs">
       <DependentUpon>MasterPage.master</DependentUpon>
@@ -152,9 +478,76 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidateCode.aspx.cs">
       <DependentUpon>ValidateCode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ValidateCode.aspx.designer.cs">
       <DependentUpon>ValidateCode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Works\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Works\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Works\delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Works\delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Works\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Works\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Works\Modify.aspx.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Works\Modify.aspx.designer.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Works\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Works\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="xhz\AddNew.aspx.cs">
+      <DependentUpon>AddNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="xhz\header.aspx.cs">
+      <DependentUpon>header.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="xhz\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="xhz\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="xhz\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="xhz\main.aspx.cs">
+      <DependentUpon>main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="xhz\Main.master.cs">
+      <DependentUpon>Main.master</DependentUpon>
+    </Compile>
+    <Compile Include="xhz\menu.aspx.cs">
+      <DependentUpon>menu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="xhz\Works.aspx.cs">
+      <DependentUpon>Works.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="xhz\Works.aspx.designer.cs">
+      <DependentUpon>Works.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -169,6 +562,9 @@
     <None Include="webctrl_client\1_0\TreeImages\rtl\vssver2.scc" />
     <None Include="webctrl_client\1_0\TreeImages\vssver2.scc" />
     <None Include="webctrl_client\1_0\vssver2.scc" />
+    <Content Include="xhz\css\vssver2.scc" />
+    <Content Include="xhz\images\vssver2.scc" />
+    <Content Include="xhz\Main.master" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Controls\CheckRight.ascx.resx">
