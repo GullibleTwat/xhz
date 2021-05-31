@@ -2,18 +2,11 @@
 <asp:Content ID="HeadContent"  ContentPlaceHolderID="headContent" runat="server">
     <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="js/Atl.js"></script>
+    <link href="cs/Atl.css" rel="stylesheet" />
     <script type="text/javascript">
         
         $(document).ready(function () {
-            //鼠标移动的元素上改变背景色
-            $("#pictureurls li").mouseover(function () {
-                $(this).css("background-color", "#F3F8FD");
 
-            });
-            $("#pictureurls li").mouseout(function () {
-                $(this).css("background-color", "");
-
-            });
             //获取图片列表mini缩略图
             //$("#pictureurls li").each(function () {
             //    var ourl = $("img",this).attr("rel");
@@ -32,35 +25,32 @@
                     $("#Article").html(data);
                 });
             });
-            //function loadGroupList(Art,Group) {
-               
-            //    $.get("getAtlList.ashx?Art=" + Art + "&Group=" + Group, function (data, status) {
-            //        $("#pictureurls").html(data);
-            //    });
-            //};
-            //function loadAtlas() {
-            //    var Art = $(".pre.picbig").attr("Art");
-            //    var No = $(".pre.picbig").attr("No");
-            //    $.get("getAtlas.ashx?Art=" + Art + "&No=" + No+"&cmd=pre", function (data, status) {
-            //        $(".pre.picbig").replaceWith(data);
-            //    });
-            //};
+            
+            //加载上一组列表
+            $(".pre.picbig").click(function () {
+                var Art = $(".pre.picbig").attr("Art");
+                var No = $(".pre.picbig").attr("No");
+                $.get("GetAtl.ashx?Art=" + Art + "&No=" + No, function (data, status) {
+                    $("#Article").html(data);
+                });
+            });
+            //加载下一组列表
+            $(".next.picbig").click(function () {
+                var Art = $(".next.picbig").attr("Art");
+                var No = $(".next.picbig").attr("No");
+                $.get("GetAtl.ashx?Art=" + Art + "&No=" + No, function (data, status) {
+                    $("#Article").html(data);
+                });
+            });
+            //鼠标移动的元素上改变背景色
+            $("#pictureurls li").mouseover(function () {
+                $(this).css("background-color", "#F3F8FD");
 
+            });
+            $("#pictureurls li").mouseout(function () {
+                $(this).css("background-color", "");
 
-
-            ////加载上一组列表
-            //$(".pre.picbig").click(function () {
-            //    var Art = $(".pre.picbig").attr("Art");
-            //    var Group = $(".pre.picbig").attr("Group");
-            //    loadGroupList(Art,Group);
-            //});
-            ////加载下一组列表
-            //$(".next.picbig").click(function () {
-            //    var Art = $(".next.picbig").attr("Art");
-            //    var Group = $(".next.picbig").attr("Group");
-            //    loadGroupList(Art, Group);
-            //});
-
+            });
         });
     </script>
 </asp:Content>
