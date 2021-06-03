@@ -1,9 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/xhz/Main.master" AutoEventWireup="true" CodeBehind="Works.aspx.cs" Inherits="Web2.xhz.Works" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style type="text/css">
-.tb{width:88px; float:left; text-align:right; }
-.margin-top20{ margin-top:8px;}
-</style>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <div class="margin-top20"><div class="tb">主题:</div><div><asp:TextBox ID="txtTitle" runat="server" Text=""></asp:TextBox></div></div>

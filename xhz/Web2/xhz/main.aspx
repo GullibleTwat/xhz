@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/xhz/Main.master" AutoEventWireup="true"
-    CodeFile="main.aspx.cs" Inherits="Admin_main" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/xhz/Main.Master" AutoEventWireup="true" CodeBehind="main.aspx.cs" Inherits="Web2.xhz.main" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>

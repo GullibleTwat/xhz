@@ -25,10 +25,13 @@
 					    <!-- empty element for pager links -->
 					    
 					 	<div class="cycle-pager"></div>
-					    <img src="images/home_slider/s1.jpg" style="width:575px;height:283px;"/>
+                        <asp:Repeater ID="Repeater1" runat="server">
+                            <ItemTemplate><a href="Works?Art='Works'&No='<%#Eval("No") %>'"><img alt="<%#Eval("Title") %>" src="<%#Eval("Atlas") %>" style="width:575px;height:283px;"/></a></ItemTemplate>
+                        </asp:Repeater>
+					 <%--   <img src="images/home_slider/s1.jpg" style="width:575px;height:283px;"/>
 					    <img src="images/home_slider/s2.jpg"/>
 					    <img src="images/home_slider/s3.jpg"/>
-					    <img src="images/home_slider/s4.jpg"/>
+					    <img src="images/home_slider/s4.jpg"/>--%>
 					</div>
 					</div>
 				</div>        
@@ -37,13 +40,17 @@
     <div class="bx_wrap">
         <div class="bx_container">
           <ul id="demo1">
-        	<li><a href="#"><img  alt="#" width="120" height="135" src="#"/>
+              <asp:Repeater runat="server" ID="Works">
+                  <ItemTemplate><li><a href="Works?Art='Works'&No='<%#Eval("No") %>'"><img  alt="<%#Eval("Title") %>" width="120" height="135" src="<%#Eval("Atlas") %>"/>
+        	<%#Eval("Title") %><br/><%#Eval("Time") %></a></li></ItemTemplate>
+              </asp:Repeater>
+        	<%--<li><a href="#"><img  alt="#" width="120" height="135" src="#"/>
         	楷体 作品1<br/>时间</a></li>
             <li><a href="#"><img  alt="#" width="120" height="135" src="#"/>楷体 作品1<br/>时间</a></li>
               <li><a href="#"><img  alt="#" width="120" height="135" src="#"/>楷体 作品1<br/>时间</a></li>
               <li><a href="#"><img  alt="#" width="120" height="135" src="#"/>楷体 作品1<br/>时间</a></li>
               <li><a href="#"><img  alt="#" width="120" height="135" src="#"/>楷体 作品1<br/>时间</a></li>
-              <li><a href="#"><img  alt="#" width="120" height="135" src="#"/>楷体 作品1<br/>时间</a></li>
+              <li><a href="#"><img  alt="#" width="120" height="135" src="#"/>楷体 作品1<br/>时间</a></li>--%>
           </ul>
         </div>
       </div>
@@ -51,25 +58,18 @@
         <div id="news" class="box">
             <h5 class="title-2">最新动态</h5>
             <ul>
-                <li>1</li>
-                 <li>1</li>
-                 <li>1</li>
-                 <li>1</li>
-                 <li>1</li>
-                 <li>1</li>
-                 <li>1</li>
+                <asp:Repeater runat="server" ID="RepeaterNews">
+                    <ItemTemplate><li><a href="Works?Art='News'&No='<%#Eval("No") %>'"><%#Eval("Title") %></a></li></ItemTemplate>
+                </asp:Repeater>
+                
             </ul>
         </div>
           <div id="news2"class="box">
             <h5 class="title-2">同行评价</h5>
             <ul>
-                <li>1</li>
-                 <li>1</li>
-                 <li>1</li>
-                 <li>1</li>
-                 <li>1</li>
-                 <li>1</li>
-                 <li>1</li>
+               <asp:Repeater runat="server" ID="RepeaterEva">
+                    <ItemTemplate><li><a href="Works?Art='Evaluate'&No='<%#Eval("No") %>'"><%#Eval("Title") %></a></li></ItemTemplate>
+                </asp:Repeater>
             </ul>
         </div>
           <div id="Div1"class="box">

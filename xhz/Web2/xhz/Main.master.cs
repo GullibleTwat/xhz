@@ -5,16 +5,19 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Admin_Main : System.Web.UI.MasterPage
+namespace Web2.xhz
 {
-    protected void Page_Load(object sender, EventArgs e)
+    public partial class Main : System.Web.UI.MasterPage
     {
-        if (!IsPostBack)
+        protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["Admin"] == null)
-            //{
-            //    Maticsoft.Common.JSpript.RedirectParent("Login.aspx");
-            //}
+            if (!IsPostBack)
+            {
+                //if (Session["Admin"] == null)
+                //{
+                //    Maticsoft.Common.JSpript.RedirectParent("Login.aspx");
+                //}
+            }
         }
     }
 }

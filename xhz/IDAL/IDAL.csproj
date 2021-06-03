@@ -120,6 +120,7 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="IEvaluateGroup.cs" />
     <Compile Include="ISysManage.cs">
       <SubType>Code</SubType>
     </Compile>

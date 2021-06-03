@@ -104,6 +104,8 @@
     <Content Include="getAtlas.ashx" />
     <Content Include="getAtlList.ashx" />
     <Content Include="Handler1.ashx" />
+    <Content Include="xhz\WorksGroup.aspx" />
+    <Content Include="xhz\WorksGroupList.aspx" />
     <None Include="js\jquery-1.4.1-vsdoc.js" />
     <Content Include="js\jquery-1.4.1.js" />
     <Content Include="js\jquery-1.4.1.min.js" />
@@ -431,6 +433,7 @@
     <Content Include="xhz\Upload\Works\day_140425\201404251243037993..png" />
     <Content Include="xhz\Upload\Works\day_140425\201404251247105593..png" />
     <Content Include="xhz\Works.aspx" />
+    <Content Include="xhz\Main.Master" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Default.aspx.cs">
@@ -483,9 +486,15 @@
       <DependentUpon>header.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="xhz\header.aspx.designer.cs">
+      <DependentUpon>header.aspx</DependentUpon>
+    </Compile>
     <Compile Include="xhz\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="xhz\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="xhz\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
@@ -498,13 +507,22 @@
       <DependentUpon>main.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="xhz\Main.master.cs">
-      <DependentUpon>Main.master</DependentUpon>
+    <Compile Include="xhz\main.aspx.designer.cs">
+      <DependentUpon>main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="xhz\Main.Master.cs">
+      <DependentUpon>Main.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="xhz\Main.Master.designer.cs">
+      <DependentUpon>Main.Master</DependentUpon>
     </Compile>
     <Compile Include="xhz\menu.aspx.cs">
       <DependentUpon>menu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="xhz\menu.aspx.designer.cs">
+      <DependentUpon>menu.aspx</DependentUpon>
     </Compile>
     <Compile Include="xhz\Works.aspx.cs">
       <DependentUpon>Works.aspx</DependentUpon>
@@ -512,6 +530,20 @@
     </Compile>
     <Compile Include="xhz\Works.aspx.designer.cs">
       <DependentUpon>Works.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="xhz\WorksGroup.aspx.cs">
+      <DependentUpon>WorksGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="xhz\WorksGroup.aspx.designer.cs">
+      <DependentUpon>WorksGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="xhz\WorksGroupList.aspx.cs">
+      <DependentUpon>WorksGroupList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="xhz\WorksGroupList.aspx.designer.cs">
+      <DependentUpon>WorksGroupList.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -525,7 +557,6 @@
     </None>
     <Content Include="xhz\css\vssver2.scc" />
     <Content Include="xhz\images\vssver2.scc" />
-    <Content Include="xhz\Main.master" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
@@ -536,13 +567,25 @@
       <Project>{e3d8759a-c5eb-402d-9f10-f5c6029a8d1a}</Project>
       <Name>Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DALFactory\DALFactory.csproj">
+      <Project>{96401c5e-d166-4e4e-98c2-3eca91b6c7eb}</Project>
+      <Name>DALFactory</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DBUtility\DBUtility.csproj">
       <Project>{0988c62e-247f-471f-a183-db509c7a3839}</Project>
       <Name>DBUtility</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IDAL\IDAL.csproj">
+      <Project>{b0706fa2-977c-4523-b093-f57804756498}</Project>
+      <Name>IDAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{53995dbb-9836-4647-ad22-865884fdeb9e}</Project>
       <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SQLServerDAL\SQLServerDAL.csproj">
+      <Project>{ab835ba2-ffd6-49cd-87b0-e216255bb32e}</Project>
+      <Name>SQLServerDAL</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

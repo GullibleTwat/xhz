@@ -1,8 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="menu.aspx.cs" Inherits="Admin_menu" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="menu.aspx.cs" Inherits="Web2.xhz.menu" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head id="Head1" runat="server">
     <title></title>
     <link href="css/admin.css" type="text/css" rel="stylesheet"/>
     <script type="text/javascript" language="javascript">
@@ -233,7 +233,7 @@
                             <img height="9" src="images/menu_icon.gif" width="9">
                         </td>
                         <td>
-                            <a class="menuChild" href="Works.aspx" target="main">添加作品</a>
+                            <a class="menuChild" href="WorksGroup.aspx" target="main">添加作品</a>
                         </td>
                     </tr>
                     <tr height="20">
@@ -241,7 +241,7 @@
                             <img height="9" src="images/menu_icon.gif" width="9">
                         </td>
                         <td>
-                            <a class="menuChild" href="WorksList.aspx" target="main">作品列表</a>
+                            <a class="menuChild" href="WorksGroupList.aspx" target="main">作品列表</a>
                         </td>
                     </tr>
                     <tr height="4">

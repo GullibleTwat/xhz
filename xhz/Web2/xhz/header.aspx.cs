@@ -5,27 +5,27 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-/// <summary>
-/// Written by 朱培源 2011.9.4
-/// </summary>
-public partial class Admin_header : System.Web.UI.Page
+namespace Web2.xhz
 {
-    protected void Page_Load(object sender, EventArgs e)
+    public partial class header : System.Web.UI.Page
     {
-        //Admin thisAdmin = (Admin)Session["Admin"];
-        //if (thisAdmin != null)
-        //{
-        //    UserLabel.Text = thisAdmin.Name;
-        //    PasswordChange.HRef = "~/Admin/AdminManager/ChangePassword.aspx?AdminId=" + thisAdmin.Id.ToString();
-        //}
-        //else
-        //{
-        //    JSpript.RedirectParent("login.aspx");
-        //}
-    }
-    protected void LogoutButton_Click(object sender, EventArgs e)
-    {
-        //Session.Clear();
-        //JSpript.RedirectParent("login.aspx");
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            //Admin thisAdmin = (Admin)Session["Admin"];
+            //if (thisAdmin != null)
+            //{
+            //    UserLabel.Text = thisAdmin.Name;
+            //    PasswordChange.HRef = "~/Admin/AdminManager/ChangePassword.aspx?AdminId=" + thisAdmin.Id.ToString();
+            //}
+            //else
+            //{
+            //    JSpript.RedirectParent("login.aspx");
+            //}
+        }
+        protected void LogoutButton_Click(object sender, EventArgs e)
+        {
+            //Session.Clear();
+            //JSpript.RedirectParent("login.aspx");
+        }
     }
 }

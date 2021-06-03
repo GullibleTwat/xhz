@@ -5,10 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Admin_index : System.Web.UI.Page
+namespace Web2.xhz
 {
-    protected void Page_Load(object sender, EventArgs e)
+    public partial class index : System.Web.UI.Page
     {
+        protected void Page_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }
