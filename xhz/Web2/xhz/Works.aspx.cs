@@ -14,17 +14,7 @@ namespace Web2.xhz
         {
             if (!IsPostBack)
             {
-                Maticsoft.BLL.WorksGroup groupbll = new Maticsoft.BLL.WorksGroup();
-                GroupList.DataSource = groupbll.GetAllList();
-                GroupList.DataValueField = "ID";
-                GroupList.DataTextField = "Title";
-                GroupList.DataBind();
-                Maticsoft.BLL.WorksItem Itembll = new Maticsoft.BLL.WorksItem();
-
-                ItemsList.DataSource = Itembll.GetAllList();
-                ItemsList.DataValueField = "ID";
-                ItemsList.DataTextField = "Title";
-                ItemsList.DataBind();
+           
             }
         }
         protected void Button1_Click(object sender, EventArgs e)
@@ -32,6 +22,16 @@ namespace Web2.xhz
             //保存文件
             string path = "";
             string filepath="" ,filename="";
+            int Id=0;
+            try
+            {
+                Id = int.Parse(Request.QueryString["Id"]);
+            }
+            catch (Exception)
+            {
+                label1.Text = "操作失败，请重新进入，尝试";
+                return;
+            } 
             if (FileUpload1.HasFile || Maticsoft.Common.FileUp.IsImg(FileUpload1.FileName))
             {
                 filepath = Maticsoft.Common.FileUp.GetUploadPath("/Upload/Works");
@@ -53,15 +53,17 @@ namespace Web2.xhz
             Maticsoft.Common.CutImage.CutImg(Server.MapPath("~/") + path, wPath, 100, 86, "CUT");
 
            //保存数据到数据库
+            Maticsoft.BLL.Works bll = new Maticsoft.BLL.Works();
+
             Maticsoft.Model.Works model = new Maticsoft.Model.Works();
             model.Title = txtTitle.Text;
             model.Content = txtsum.Text;
-            model.GroupID = Convert.ToInt32(GroupList.SelectedItem.Value);//
-            model.ItemID = Convert.ToInt32(ItemsList.SelectedItem.Value);
+            model.GroupID = Id;//
+            model.ItemID = 1;
+            model.No = bll.GetMaxId() ;
             model.Attachment = path;//图片路径
 
-                Maticsoft.BLL.Works bll = new Maticsoft.BLL.Works();
-
+               
                 if ( bll.Add(model)==0)
                 {
                     label1.Text = "插入失败";

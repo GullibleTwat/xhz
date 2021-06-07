@@ -6,7 +6,7 @@
 *
 * Ver    变更日期             负责人  变更内容
 * ───────────────────────────────────
-* V0.01  2014/5/7 2:08:45   N/A    初版
+* V0.01  2014/5/7 14:09:55   N/A    初版
 *
 * Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
 *┌──────────────────────────────────┐
@@ -36,22 +36,22 @@ namespace Maticsoft.SQLServerDAL
 		/// </summary>
 		public int GetMaxId()
 		{
-		return DbHelperSQL.GetMaxID("ID", "Evaluate"); 
+		return DbHelperSQL.GetMaxID("No", "Evaluate"); 
 		}
 
 		/// <summary>
 		/// 是否存在该记录
 		/// </summary>
-		public bool Exists(int ID,int No)
+		public bool Exists(int No,int ID)
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from Evaluate");
-			strSql.Append(" where ID=@ID and No=@No ");
+			strSql.Append(" where No=@No and ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("@ID", SqlDbType.Int,4),
-					new SqlParameter("@No", SqlDbType.Int,4)			};
-			parameters[0].Value = ID;
-			parameters[1].Value = No;
+					new SqlParameter("@No", SqlDbType.Int,4),
+					new SqlParameter("@ID", SqlDbType.Int,4)			};
+			parameters[0].Value = No;
+			parameters[1].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
 		}
@@ -64,12 +64,11 @@ namespace Maticsoft.SQLServerDAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into Evaluate(");
-			strSql.Append("ID,Title,Content,Attachment,Time,IsOpen,GroupID,Click,Mark,S1)");
+			strSql.Append("Title,Content,Attachment,Time,IsOpen,GroupID,Click,No,Mark,S1)");
 			strSql.Append(" values (");
-			strSql.Append("@ID,@Title,@Content,@Attachment,@Time,@IsOpen,@GroupID,@Click,@Mark,@S1)");
+			strSql.Append("@Title,@Content,@Attachment,@Time,@IsOpen,@GroupID,@Click,@No,@Mark,@S1)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
-					new SqlParameter("@ID", SqlDbType.Int,4),
 					new SqlParameter("@Title", SqlDbType.NVarChar,100),
 					new SqlParameter("@Content", SqlDbType.NVarChar,-1),
 					new SqlParameter("@Attachment", SqlDbType.NVarChar,100),
@@ -77,16 +76,17 @@ namespace Maticsoft.SQLServerDAL
 					new SqlParameter("@IsOpen", SqlDbType.Bit,1),
 					new SqlParameter("@GroupID", SqlDbType.Int,4),
 					new SqlParameter("@Click", SqlDbType.Int,4),
+					new SqlParameter("@No", SqlDbType.Int,4),
 					new SqlParameter("@Mark", SqlDbType.Int,4),
 					new SqlParameter("@S1", SqlDbType.NVarChar,50)};
-			parameters[0].Value = model.ID;
-			parameters[1].Value = model.Title;
-			parameters[2].Value = model.Content;
-			parameters[3].Value = model.Attachment;
-			parameters[4].Value = model.Time;
-			parameters[5].Value = model.IsOpen;
-			parameters[6].Value = model.GroupID;
-			parameters[7].Value = model.Click;
+			parameters[0].Value = model.Title;
+			parameters[1].Value = model.Content;
+			parameters[2].Value = model.Attachment;
+			parameters[3].Value = model.Time;
+			parameters[4].Value = model.IsOpen;
+			parameters[5].Value = model.GroupID;
+			parameters[6].Value = model.Click;
+			parameters[7].Value = model.No;
 			parameters[8].Value = model.Mark;
 			parameters[9].Value = model.S1;
 
@@ -116,7 +116,7 @@ namespace Maticsoft.SQLServerDAL
 			strSql.Append("Click=@Click,");
 			strSql.Append("Mark=@Mark,");
 			strSql.Append("S1=@S1");
-			strSql.Append(" where No=@No");
+			strSql.Append(" where ID=@ID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@Title", SqlDbType.NVarChar,100),
 					new SqlParameter("@Content", SqlDbType.NVarChar,-1),
@@ -155,16 +155,16 @@ namespace Maticsoft.SQLServerDAL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool Delete(int No)
+		public bool Delete(int ID)
 		{
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from Evaluate ");
-			strSql.Append(" where No=@No");
+			strSql.Append(" where ID=@ID");
 			SqlParameter[] parameters = {
-					new SqlParameter("@No", SqlDbType.Int,4)
+					new SqlParameter("@ID", SqlDbType.Int,4)
 			};
-			parameters[0].Value = No;
+			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -179,17 +179,17 @@ namespace Maticsoft.SQLServerDAL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool Delete(int ID,int No)
+		public bool Delete(int No,int ID)
 		{
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from Evaluate ");
-			strSql.Append(" where ID=@ID and No=@No ");
+			strSql.Append(" where No=@No and ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("@ID", SqlDbType.Int,4),
-					new SqlParameter("@No", SqlDbType.Int,4)			};
-			parameters[0].Value = ID;
-			parameters[1].Value = No;
+					new SqlParameter("@No", SqlDbType.Int,4),
+					new SqlParameter("@ID", SqlDbType.Int,4)			};
+			parameters[0].Value = No;
+			parameters[1].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -204,11 +204,11 @@ namespace Maticsoft.SQLServerDAL
 		/// <summary>
 		/// 批量删除数据
 		/// </summary>
-		public bool DeleteList(string Nolist )
+		public bool DeleteList(string IDlist )
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from Evaluate ");
-			strSql.Append(" where No in ("+Nolist + ")  ");
+			strSql.Append(" where ID in ("+IDlist + ")  ");
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString());
 			if (rows > 0)
 			{
@@ -224,16 +224,16 @@ namespace Maticsoft.SQLServerDAL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public Maticsoft.Model.Evaluate GetModel(int No)
+		public Maticsoft.Model.Evaluate GetModel(int ID)
 		{
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,Title,Content,Attachment,Time,IsOpen,GroupID,Click,No,Mark,S1 from Evaluate ");
-			strSql.Append(" where No=@No");
+			strSql.Append(" where ID=@ID");
 			SqlParameter[] parameters = {
-					new SqlParameter("@No", SqlDbType.Int,4)
+					new SqlParameter("@ID", SqlDbType.Int,4)
 			};
-			parameters[0].Value = No;
+			parameters[0].Value = ID;
 
 			Maticsoft.Model.Evaluate model=new Maticsoft.Model.Evaluate();
 			DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);
@@ -382,7 +382,7 @@ namespace Maticsoft.SQLServerDAL
 			}
 			else
 			{
-				strSql.Append("order by T.No desc");
+				strSql.Append("order by T.ID desc");
 			}
 			strSql.Append(")AS Row, T.*  from Evaluate T ");
 			if (!string.IsNullOrEmpty(strWhere.Trim()))
@@ -410,7 +410,7 @@ namespace Maticsoft.SQLServerDAL
 					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "Evaluate";
-			parameters[1].Value = "No";
+			parameters[1].Value = "ID";
 			parameters[2].Value = PageSize;
 			parameters[3].Value = PageIndex;
 			parameters[4].Value = 0;

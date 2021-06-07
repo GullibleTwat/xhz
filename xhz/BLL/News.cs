@@ -6,7 +6,7 @@
 *
 * Ver    变更日期             负责人  变更内容
 * ───────────────────────────────────
-* V0.01  2014/5/7 2:08:46   N/A    初版
+* V0.01  2014/5/7 14:09:56   N/A    初版
 *
 * Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
 *┌──────────────────────────────────┐
@@ -44,9 +44,9 @@ namespace Maticsoft.BLL
 		/// <summary>
 		/// 是否存在该记录
 		/// </summary>
-		public bool Exists(int ID,int No)
+		public bool Exists(int No,int ID)
 		{
-			return dal.Exists(ID,No);
+			return dal.Exists(No,ID);
 		}
 
 		/// <summary>
@@ -68,49 +68,49 @@ namespace Maticsoft.BLL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool Delete(int No)
+		public bool Delete(int ID)
 		{
 			
-			return dal.Delete(No);
+			return dal.Delete(ID);
 		}
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool Delete(int ID,int No)
+		public bool Delete(int No,int ID)
 		{
 			
-			return dal.Delete(ID,No);
+			return dal.Delete(No,ID);
 		}
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool DeleteList(string Nolist )
+		public bool DeleteList(string IDlist )
 		{
-			return dal.DeleteList(Maticsoft.Common.PageValidate.SafeLongFilter(Nolist,0) );
+			return dal.DeleteList(Maticsoft.Common.PageValidate.SafeLongFilter(IDlist,0) );
 		}
 
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public Maticsoft.Model.News GetModel(int No)
+		public Maticsoft.Model.News GetModel(int ID)
 		{
 			
-			return dal.GetModel(No);
+			return dal.GetModel(ID);
 		}
 
 		/// <summary>
 		/// 得到一个对象实体，从缓存中
 		/// </summary>
-		public Maticsoft.Model.News GetModelByCache(int No)
+		public Maticsoft.Model.News GetModelByCache(int ID)
 		{
 			
-			string CacheKey = "NewsModel-" + No;
+			string CacheKey = "NewsModel-" + ID;
 			object objModel = Maticsoft.Common.DataCache.GetCache(CacheKey);
 			if (objModel == null)
 			{
 				try
 				{
-					objModel = dal.GetModel(No);
+					objModel = dal.GetModel(ID);
 					if (objModel != null)
 					{
 						int ModelCache = Maticsoft.Common.ConfigHelper.GetConfigInt("ModelCache");

@@ -9,17 +9,19 @@ namespace Web2
 {
     public partial class Works : System.Web.UI.Page
     {
-        public int group = 6;
+        public string  Art = "Works";
+        public int No = 6;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["group"]!=null)
+            if (Request.QueryString["Art"]!=null)
             {
-                group = Convert.ToInt32( Request.QueryString["group"]);
+                Art =  Request.QueryString["Art"];
+            }
+            if (Request.QueryString["No"] != null)
+            {
+                No = Convert.ToInt32(Request.QueryString["No"]);
             }
 
-            //Maticsoft.BLL.Works worksbll = new Maticsoft.BLL.Works();
-            //Repeater1.DataSource = worksbll.GetList("GroupID='" + group + "'");
-            //Repeater1.DataBind();
         }
     }
 }

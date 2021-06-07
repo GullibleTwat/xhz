@@ -31,13 +31,14 @@ namespace Web2.xhz
                 return;
             }
             //保存数据到数据库
+            Maticsoft.BLL.WorksGroup bll = new Maticsoft.BLL.WorksGroup();
             Maticsoft.Model.WorksGroup model = new Maticsoft.Model.WorksGroup();
             model.Title = txtTitle.Text;
             model.Info = txtsum.Text;
             model.Mark = int.Parse( txtMark.Text );
+            model.No = bll.GetMaxId();
             model.Atlas = path;//图片路径
 
-            Maticsoft.BLL.WorksGroup bll = new Maticsoft.BLL.WorksGroup();
 
             if (bll.Add(model) == 0)
             {

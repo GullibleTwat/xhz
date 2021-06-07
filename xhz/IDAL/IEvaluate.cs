@@ -6,7 +6,7 @@
 *
 * Ver    变更日期             负责人  变更内容
 * ───────────────────────────────────
-* V0.01  2014/5/7 2:08:45   N/A    初版
+* V0.01  2014/5/7 14:09:55   N/A    初版
 *
 * Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
 *┌──────────────────────────────────┐
@@ -31,7 +31,7 @@ namespace Maticsoft.IDAL
 		/// <summary>
 		/// 是否存在该记录
 		/// </summary>
-		bool Exists(int ID,int No);
+		bool Exists(int No,int ID);
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
@@ -43,16 +43,16 @@ namespace Maticsoft.IDAL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		bool Delete(int No);
+		bool Delete(int ID);
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		bool Delete(int ID,int No);
-		bool DeleteList(string Nolist );
+		bool Delete(int No,int ID);
+		bool DeleteList(string IDlist );
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		Maticsoft.Model.Evaluate GetModel(int No);
+		Maticsoft.Model.Evaluate GetModel(int ID);
 		Maticsoft.Model.Evaluate DataRowToModel(DataRow row);
 		/// <summary>
 		/// 获得数据列表

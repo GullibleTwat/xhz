@@ -104,7 +104,9 @@
     <Content Include="getAtlas.ashx" />
     <Content Include="getAtlList.ashx" />
     <Content Include="Handler1.ashx" />
+    <Content Include="xhz\AterWorksGroup.aspx" />
     <Content Include="xhz\WorksGroup.aspx" />
+    <Content Include="xhz\WorksGroupAlter.aspx" />
     <Content Include="xhz\WorksGroupList.aspx" />
     <None Include="js\jquery-1.4.1-vsdoc.js" />
     <Content Include="js\jquery-1.4.1.js" />
@@ -482,6 +484,13 @@
       <DependentUpon>AddNew.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="xhz\AterWorksGroup.aspx.cs">
+      <DependentUpon>AterWorksGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="xhz\AterWorksGroup.aspx.designer.cs">
+      <DependentUpon>AterWorksGroup.aspx</DependentUpon>
+    </Compile>
     <Compile Include="xhz\header.aspx.cs">
       <DependentUpon>header.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -537,6 +546,13 @@
     </Compile>
     <Compile Include="xhz\WorksGroup.aspx.designer.cs">
       <DependentUpon>WorksGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="xhz\WorksGroupAlter.aspx.cs">
+      <DependentUpon>WorksGroupAlter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="xhz\WorksGroupAlter.aspx.designer.cs">
+      <DependentUpon>WorksGroupAlter.aspx</DependentUpon>
     </Compile>
     <Compile Include="xhz\WorksGroupList.aspx.cs">
       <DependentUpon>WorksGroupList.aspx</DependentUpon>

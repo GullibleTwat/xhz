@@ -233,7 +233,7 @@
                             <img height="9" src="images/menu_icon.gif" width="9">
                         </td>
                         <td>
-                            <a class="menuChild" href="WorksGroup.aspx" target="main">添加作品</a>
+                            <a class="menuChild" href="WorksGroup.aspx" target="main">添加图集</a>
                         </td>
                     </tr>
                     <tr height="20">
@@ -241,7 +241,7 @@
                             <img height="9" src="images/menu_icon.gif" width="9">
                         </td>
                         <td>
-                            <a class="menuChild" href="WorksGroupList.aspx" target="main">作品列表</a>
+                            <a class="menuChild" href="WorksGroupList.aspx" target="main">图集列表</a>
                         </td>
                     </tr>
                     <tr height="4">

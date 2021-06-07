@@ -57,6 +57,4 @@ $(document).ready(function () {
             auto_hover: true
         });
     });
-
-
 });

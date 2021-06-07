@@ -4,8 +4,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <div class="margin-top20"><div class="tb">主题:</div><div><asp:TextBox ID="txtTitle" runat="server" Text=""></asp:TextBox></div></div>
-     <div class="margin-top20"> <div class="tb">分类:</div><div><asp:DropDownList ID="ItemsList" runat="server"></asp:DropDownList></div></div>
-     <div class="margin-top20"><div class="tb">分组:</div><div><asp:DropDownList ID="GroupList" runat="server"></asp:DropDownList></div></div>
+     <%--<div class="margin-top20"> <div class="tb">分类:</div><div><asp:DropDownList ID="ItemsList" runat="server"></asp:DropDownList></div></div>--%>
+     
     
         <div class="margin-top20"><div class="tb">简介:</div><div><asp:TextBox ID="txtsum" runat="server" Text="" Height="129px" 
                 TextMode="MultiLine" Width="280px"></asp:TextBox></div></div>

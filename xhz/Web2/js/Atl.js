@@ -208,6 +208,9 @@ function SwapTab(name, title, content, Sub, cur) {
 }
 
 $(document).ready(function () {
+
+
+
     //获取锚点即当前图片id
     var picid = location.hash;
     picid = picid.substring(1);
@@ -372,3 +375,60 @@ function loadpic(id) {
     url = $("#pictureurls li:nth-child(" + id + ") img").attr("rel");
     $("#load_pic").html("<img src='" + url + "'>");
 }
+
+
+$(document).ready(function () {
+
+    //获取图片列表mini缩略图
+    //$("#pictureurls li").each(function () {
+    //    var ourl = $("img",this).attr("rel");
+    //    var name = "mini_" + ourl.substring(ourl.lastIndexOf("/")+1);
+    //    var url = ourl.substring(0, ourl.lastIndexOf("/")+1) + name;
+    //    $("img", this).attr("src",url);
+    //});
+    //获取上/下一组图片
+    //$("#myGrouptitle").html = "hhhh";
+    //$("#myul").html("Hello");
+    $(function () {
+        var Art = $("#Article").attr("Art");
+        var No = $("#Article").attr("No");
+
+        $.get("GetAtl.ashx?Art=" + Art + "&No=" + No, function (data, status) {
+            $("#Article").html(data);
+        });
+    });
+    //鼠标移动的元素上改变背景色
+    $("#pictureurls li").mouseover(function () {
+        $(this).css("background-color", "#F3F8FD");
+
+    });
+    $("#pictureurls li").mouseout(function () {
+        $(this).css("background-color", "");
+
+    });
+
+    //加载上一组列表
+    $(".pre.picbig").click(function () {
+        var Art = $(".pre.picbig").attr("Art");
+        var No = $(".pre.picbig").attr("No");
+        $.get("GetAtl.ashx?Art=" + Art + "&No=" + No, function (data, status) {
+            $("#Article").html(data);
+        });
+    });
+    //加载下一组列表
+    $(".next.picbig").click(function () {
+        var Art = $(".next.picbig").attr("Art");
+        var No = $(".next.picbig").attr("No");
+        $.get("GetAtl.ashx?Art=" + Art + "&No=" + No, function (data, status) {
+            $("#Article").html(data);
+        });
+    });
+});
+
+function showGroup(obj) {
+    var Art =$(obj).attr("Art");
+    var No = $(obj).attr("No");
+    $.get("GetAtl.ashx?Art=" + Art + "&No=" + No, function (data, status) {
+        $("#Article").html(data);
+    });
+} (jQuery)

@@ -32,7 +32,7 @@ namespace Web2
             //    return;
             //}
             string Art = context.Request.QueryString["Art"].ToString(); //表
-            string No = No = context.Request.QueryString["No"].ToString();//分组排序序号
+            string No = context.Request.QueryString["No"].ToString();//分组排序序号
             //string cmd = context.Request.QueryString["cmd"].ToString();//命令
             //一.根据No 获取当前分组ID，title，info,将title，info嵌入指定网页位置
             SqlDataReader dr = GetAtlas(Art, No, "cur");
@@ -66,11 +66,12 @@ namespace Web2
                   + Art
                   + " No="
                   + drPre["No"].ToString()
+                  + " onclick=showGroup(this);"
                   + "><DIV class='img-wrap'><A href=\"#pre\"><IMG title="
                   + drPre["Title"].ToString()
                   + " style=\"HEIGHT: 75px; WIDTH: 100px\" src=\""
                   + drPre["Atlas"].ToString()
-                  + "\"></A></DIV><A href=\"#pre\">&lt;上一组</A> </DIV><A onclick=\"showpic('pre')\" class=pre-bnt href=\"javascript:;\"  ><SPAN></SPAN></A><DIV class=cont style=\"POSITION: relative\">";
+                  + "\"></A></DIV><A href=\"javascript:;\">&lt;上一组</A> </DIV><A onclick=\"showpic('pre')\" class=pre-bnt href=\"javascript:;\"  ><SPAN></SPAN></A><DIV class=cont style=\"POSITION: relative\">";
             }
             else
             {
@@ -104,6 +105,7 @@ namespace Web2
                        + Art
                        + " No="
                        + drNext["No"].ToString()
+                       + " onclick=showGroup(this);"
                        + "><DIV class='img-wrap'><A href=\"#next\"><IMG title="
                        + drNext["Title"].ToString()
                        + " style=\"HEIGHT: 75px; WIDTH: 100px\" src=\""
@@ -119,7 +121,7 @@ namespace Web2
         private SqlDataReader GetAtlas(string Art, string No, string cmd)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select ID,Title,Atlas,Time,No,Click from ");
+            strSql.Append("select top 1 ID,Title,Atlas,Time,No,Click from ");
             strSql.Append(Art);
             strSql.Append("Group");
             switch (cmd)

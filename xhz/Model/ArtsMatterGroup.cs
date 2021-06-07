@@ -6,7 +6,7 @@
 *
 * Ver    变更日期             负责人  变更内容
 * ───────────────────────────────────
-* V0.01  2014/5/7 2:08:45   N/A    初版
+* V0.01  2014/5/7 14:09:55   N/A    初版
 *
 * Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
 *┌──────────────────────────────────┐
@@ -31,7 +31,7 @@ namespace Maticsoft.Model
 		private string _atlas;
 		private DateTime? _time= DateTime.Now;
 		private string _info;
-		private int _no;
+		private int _no=0;
 		private int? _mark;
 		private int? _click=0;
 		/// <summary>
