@@ -210,55 +210,62 @@ function SwapTab(name, title, content, Sub, cur) {
 $(document).ready(function () {
 
 
+    $(function () {
+        var Art = $("#Article").attr("Art");
+        var No = $("#Article").attr("No");
 
-    //获取锚点即当前图片id
-    var picid = location.hash;
-    picid = picid.substring(1);
-    if (isNaN(picid) || picid == '' || picid == null) {
-        picid = 1;
-    }
-    picid = parseInt(picid);
+        $.get("GetAtl.ashx?Art=" + Art + "&No=" + No, function (data, status) {
+            $("#Article").html(data);
+            //获取锚点即当前图片id
+            var picid = location.hash;
+            picid = picid.substring(1);
+            if (isNaN(picid) || picid == '' || picid == null) {
+                picid = 1;
+            }
+            picid = parseInt(picid);
 
-    //图集图片总数
-    var totalnum = $("#pictureurls li").length;
-    //如果当前图片id大于图片数，显示第一张图片
-    if (picid > totalnum || picid < 1) {
-        picid = 1;
-        next_picid = 1;	//下一张图片id
-    } else {
-        next_picid = picid + 1;
-    }
+            //图集图片总数
+            var totalnum = $("#pictureurls li").length;
+            //如果当前图片id大于图片数，显示第一张图片
+            if (picid > totalnum || picid < 1) {
+                picid = 1;
+                next_picid = 1;	//下一张图片id
+            } else {
+                next_picid = picid + 1;
+            }
 
-    url = $("#pictureurls li:nth-child(" + picid + ") img").attr("rel");
-    $("#big-pic").html("<img src='" + url + "' onload='loadpic(" + next_picid + ")'>");
-    $('#big-pic img').LoadImage(true, 890, 650, $("#load_pic").attr('rel'));
-    $("#picnum").html("(" + picid + "/" + totalnum + ")");
-    $("#picinfo").html($("#pictureurls li:nth-child(" + picid + ") img").attr("alt"));
+            url = $("#pictureurls li:nth-child(" + picid + ") img").attr("rel");
+            $("#big-pic").html("<img src='" + url + "' onload='loadpic(" + next_picid + ")'>");
+            $('#big-pic img').LoadImage(true, 890, 650, $("#load_pic").attr('rel'));
+            $("#picnum").html("(" + picid + "/" + totalnum + ")");
+            $("#picinfo").html($("#pictureurls li:nth-child(" + picid + ") img").attr("alt"));
 
-    $("#pictureurls li").click(function () {
-        i = $(this).index() + 1;
-        showpic(i);
-    });
+            $("#pictureurls li").click(function () {
+                i = $(this).index() + 1;
+                showpic(i);
+            });
 
-    //加载时图片滚动到中间
-    var _w = $('.cont li').width() * $('.cont li').length;
-    if (picid > 2) {
-        movestep = picid - 3;
-    } else {
-        movestep = 0;
-    }
-    $(".cont ul").css({ "left": -+$('.cont li').width() * movestep });
-
-    //点击图片滚动
-    $('.cont ul').width(_w);
-    $(".cont li").click(function () {
-        if ($(this).index() > 2) {
-            movestep = $(this).index() - 2;
+            //加载时图片滚动到中间
+            var _w = $('.cont li').width() * $('.cont li').length;
+            if (picid > 2) {
+                movestep = picid - 3;
+            } else {
+                movestep = 0;
+            }
             $(".cont ul").css({ "left": -+$('.cont li').width() * movestep });
-        }
+
+            //点击图片滚动
+            $('.cont ul').width(_w);
+            $(".cont li").click(function () {
+                if ($(this).index() > 2) {
+                    movestep = $(this).index() - 2;
+                    $(".cont ul").css({ "left": -+$('.cont li').width() * movestep });
+                }
+            });
+            //当前缩略图添加样式
+            $("#pictureurls li:nth-child(" + picid + ")").addClass("on");
+        });
     });
-    //当前缩略图添加样式
-    $("#pictureurls li:nth-child(" + picid + ")").addClass("on");
 
 });
 
@@ -324,7 +331,12 @@ function showpic(type, replay) {
                 next_picid = parseInt(i) - 1;
             }
         }
-        url = $("#pictureurls li:nth-child(" + i + ") img").attr("rel");
+        //根据原图获得big_缩略图
+        rel = $("#pictureurls li:nth-child(" + i + ") img").attr("rel");
+        var name = "big_" + rel.substring(rel.lastIndexOf("/") + 1);
+        var url = rel.substring(0, rel.lastIndexOf("/") + 1) + name;
+
+
         $("#big-pic").html("<img src='" + url + "' onload='loadpic(" + next_picid + ")'>");
         $('#big-pic img').LoadImage(true, 890, 650, $("#load_pic").attr('rel'));
         $("#picnum").html("(" + i + "/" + totalnum + ")");
@@ -379,24 +391,6 @@ function loadpic(id) {
 
 $(document).ready(function () {
 
-    //获取图片列表mini缩略图
-    //$("#pictureurls li").each(function () {
-    //    var ourl = $("img",this).attr("rel");
-    //    var name = "mini_" + ourl.substring(ourl.lastIndexOf("/")+1);
-    //    var url = ourl.substring(0, ourl.lastIndexOf("/")+1) + name;
-    //    $("img", this).attr("src",url);
-    //});
-    //获取上/下一组图片
-    //$("#myGrouptitle").html = "hhhh";
-    //$("#myul").html("Hello");
-    $(function () {
-        var Art = $("#Article").attr("Art");
-        var No = $("#Article").attr("No");
-
-        $.get("GetAtl.ashx?Art=" + Art + "&No=" + No, function (data, status) {
-            $("#Article").html(data);
-        });
-    });
     //鼠标移动的元素上改变背景色
     $("#pictureurls li").mouseover(function () {
         $(this).css("background-color", "#F3F8FD");
@@ -405,23 +399,6 @@ $(document).ready(function () {
     $("#pictureurls li").mouseout(function () {
         $(this).css("background-color", "");
 
-    });
-
-    //加载上一组列表
-    $(".pre.picbig").click(function () {
-        var Art = $(".pre.picbig").attr("Art");
-        var No = $(".pre.picbig").attr("No");
-        $.get("GetAtl.ashx?Art=" + Art + "&No=" + No, function (data, status) {
-            $("#Article").html(data);
-        });
-    });
-    //加载下一组列表
-    $(".next.picbig").click(function () {
-        var Art = $(".next.picbig").attr("Art");
-        var No = $(".next.picbig").attr("No");
-        $.get("GetAtl.ashx?Art=" + Art + "&No=" + No, function (data, status) {
-            $("#Article").html(data);
-        });
     });
 });
 

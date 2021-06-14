@@ -24,6 +24,14 @@ namespace Web2.xhz
                 filepath = Maticsoft.Common.FileUp.GetUploadPath("/Upload/Works");
                 filename = Maticsoft.Common.FileUp.GetRandomName();
                 path = Maticsoft.Common.FileUp.uploadfile(FileUpload1.PostedFile, filepath, filename);
+                // 生成缩略图
+                string bigPath = Server.MapPath("~/") + filepath + "big_" + filename + System.IO.Path.GetExtension(FileUpload1.FileName).ToLower();
+                Maticsoft.Common.CutImage.CutImg(Server.MapPath("~/") + path, bigPath, 896, 650, "h");
+                string miniPath = Server.MapPath("~/") + filepath + "mini_" + filename + System.IO.Path.GetExtension(FileUpload1.FileName).ToLower();
+                Maticsoft.Common.CutImage.CutImg(Server.MapPath("~/") + path, miniPath, 100, 75, "h");
+                string wPath = Server.MapPath("~/") + filepath + "w_" + filename + System.IO.Path.GetExtension(FileUpload1.FileName).ToLower();
+                Maticsoft.Common.CutImage.CutImg(Server.MapPath("~/") + path, wPath, 100, 86, "CUT");
+
             }
             else
             {

@@ -136,6 +136,7 @@
     <Compile Include="CutImage.cs" />
     <Compile Include="FileUp.cs" />
     <Compile Include="HttpProc.cs" />
+    <Compile Include="IMG.cs" />
     <Compile Include="JSpript.cs" />
     <Compile Include="MailSender.cs" />
     <Compile Include="MyFileOp.cs" />
@@ -169,7 +170,6 @@
     <Compile Include="PageValidate.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="RMB.cs" />
     <Compile Include="StringPlus.cs" />
     <Compile Include="TimeParser.cs" />
     <Compile Include="UrlOper.cs" />

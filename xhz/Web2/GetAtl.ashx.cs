@@ -70,7 +70,7 @@ namespace Web2
                   + "><DIV class='img-wrap'><A href=\"#pre\"><IMG title="
                   + drPre["Title"].ToString()
                   + " style=\"HEIGHT: 75px; WIDTH: 100px\" src=\""
-                  + drPre["Atlas"].ToString()
+                  + Maticsoft.Common.IMG.GetW( drPre["Atlas"].ToString())
                   + "\"></A></DIV><A href=\"javascript:;\">&lt;上一组</A> </DIV><A onclick=\"showpic('pre')\" class=pre-bnt href=\"javascript:;\"  ><SPAN></SPAN></A><DIV class=cont style=\"POSITION: relative\">";
             }
             else
@@ -81,13 +81,14 @@ namespace Web2
             //三.根据当前分组ID（GroupID）获取本组数据列表，将本组数据嵌入网页
             SqlDataReader drList = GetAtlList(Art, dr["ID"].ToString());
             html += "<UL id=\"pictureurls\" class=\"cont picbig\" style=\"WIDTH: 1230px; POSITION: absolute; LEFT: 0px\">";
+            int i = 0;
             while (drList.Read())
             {
+                i++;
                 string relurl = drList["Attachment"].ToString();
                 string title = drList["Title"].ToString();
-                string name = "mini_" + relurl.Substring(relurl.LastIndexOf("/") + 1);
-                string url = relurl.Substring(0, relurl.LastIndexOf("/") + 1) + name;
-                html += "<LI><div class='img-wrap'><a href='javascript:;'><img  height='75' width='100' alt='"
+                string url = Maticsoft.Common.IMG.GetMini(relurl);
+                html += "<LI><div class='img-wrap'><a href='javascript:;' onclick=showpic("+i+");><img  height='75' width='100' alt='"
                     + title
                     + "' src='"
                     + url
@@ -109,7 +110,7 @@ namespace Web2
                        + "><DIV class='img-wrap'><A href=\"#next\"><IMG title="
                        + drNext["Title"].ToString()
                        + " style=\"HEIGHT: 75px; WIDTH: 100px\" src=\""
-                       + drNext["Atlas"].ToString()
+                       + Maticsoft.Common.IMG.GetW(drNext["Atlas"].ToString())
                        + "\"></A></DIV><A href=\"#next\">&lt;下一组</A> </DIV></DIV>"
                        +"<div class='text' id='picinfo'>hello</div><div class='content'></div>";
             }
